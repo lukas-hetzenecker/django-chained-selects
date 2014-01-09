@@ -33,7 +33,8 @@ class ChainedSelectWidget(Select):
     def __init__(self, parent_name, app_name, model_name, method_name, *args, **kwargs):
         self.datas = {
             'data-parent-id': 'id_%s' % parent_name,
-            'data-url': '/%(prefix)s/%(app_name)s/%(model_name)s/%(method_name)s/' % {
+            'data-url': '/%(url_prefix)s%(prefix)s/%(app_name)s/%(model_name)s/%(method_name)s/' % {
+                'url_prefix' : URL_PREFIX,
                 'prefix': kwargs.get('url_prefix', 'chained'),
                 'app_name': app_name,
                 'model_name': model_name,
